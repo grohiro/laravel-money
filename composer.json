@@ -1,0 +1,29 @@
+{
+    "name": "grohiro/laravel-money",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Grohiro\\LaravelMoney\\": "src/",
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "grohiro"
+        }
+    ],
+    "require": {
+        "moneyphp/money": "~3"
+    },
+    "require-dev": {
+        "laravel/framework": ">=7",
+        "phpunit/phpunit": ">=7"
+    },
+    "scripts": {
+      "test": "phpunit --bootstrap vendor/autoload.php tests/"
+    }
+}
