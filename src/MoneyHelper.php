@@ -2,7 +2,6 @@
 namespace Grohiro\LaravelMoney;
 
 use Money\Currencies\ISOCurrencies;
-use Money\Currency;
 use Money\Formatter\DecimalMoneyFormatter;
 use Money\Money;
 use Money\MoneyFormatter;
@@ -22,12 +21,14 @@ class MoneyHelper
 
     public static function json(Money $money)
     {
+        $currencies = new ISOCurrencies();
         $decimal = static::decimal($money);
         $code = $money->getCurrency()->getCode();
         return [
             'amount' => $money->getAmount(),
             'code' => $code,
             'decimal' => $decimal,
+            'subunit' => $currencies->subunitFor($money->getCurrency()),
             'text' => $decimal.$code,
         ];
     }
