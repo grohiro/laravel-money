@@ -31,6 +31,7 @@ class MoneyHelperTest extends TestCase
         $this->assertEquals($json['decimal'], '10.50');
         $this->assertEquals($json['code'], 'USD');
         $this->assertEquals($json['text'], '10.50USD');
+        $this->assertEquals($json['subunit'], 2);
     }
 
     public function testJsonJPY()
@@ -42,5 +43,6 @@ class MoneyHelperTest extends TestCase
         $this->assertEquals($json['decimal'], '1050');
         $this->assertEquals($json['code'], 'JPY');
         $this->assertEquals($json['text'], '1050JPY');
+        $this->assertEquals($json['subunit'], 0);
     }
 }
