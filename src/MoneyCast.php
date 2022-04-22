@@ -22,8 +22,8 @@ class MoneyCast implements CastsAttributes
     public function get($model, $key, $value, $attributes)
     {
         $codeField = $key.static::$SUFFIX;
-        $code = $model->$codeField;
-        return new Money($model->$key, new Currency($code));
+        $code = $attributes[$codeField];
+        return new Money($value, new Currency($code));
     }
 
     /**
