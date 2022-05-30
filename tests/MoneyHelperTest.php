@@ -45,4 +45,18 @@ class MoneyHelperTest extends TestCase
         $this->assertEquals($json['text'], '1050JPY');
         $this->assertEquals($json['subunit'], 0);
     }
+
+    public function testParserJPY()
+    {
+        $jpy = new \Money\Currency('JPY');
+        $money = MoneyHelper::parse('19800', $jpy);
+        $this->assertEquals(19800, $money->getAmount());
+    }
+
+    public function testParserUSD()
+    {
+        $usd = new \Money\Currency('USD');
+        $money = MoneyHelper::parse('19.35', $usd);
+        $this->assertEquals(1935, $money->getAmount());
+    }
 }
