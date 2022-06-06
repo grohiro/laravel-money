@@ -21,6 +21,10 @@ class MoneyCast implements CastsAttributes
      */
     public function get($model, $key, $value, $attributes)
     {
+        if ($value === null || $value === '') {
+            return null;
+        }
+
         $codeField = $key.static::$SUFFIX;
         $code = $attributes[$codeField];
         return new Money($value, new Currency($code));
@@ -37,6 +41,10 @@ class MoneyCast implements CastsAttributes
      */
     public function set($model, $key, $value, $attributes)
     {
+        if ($value === null) {
+            return;
+        }
+
         if (!$value instanceof Money) {
             throw new \Exception('$value must be an instance of Money');
         }

@@ -16,4 +16,13 @@ class ItemTest extends TestCase
         $this->assertEquals(1500, $attributes['price']);
         $this->assertEquals('USD', $attributes['price_currency']);
     }
+
+    public function testNull()
+    {
+        $item = new Item();
+        $item->price = null;
+
+        $money = $item->price;
+        $this->assertNull($money);
+    }
 }
