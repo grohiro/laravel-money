@@ -41,3 +41,12 @@ if (!function_exists('json_money')) {
         return MoneyHelper::json($money);
     }
 }
+if (!function_exists('money_or_null')) {
+    function money_or_null(?string $decimalFormatString, Currency $currency): ?Money
+    {
+        if ($decimalFormatString === null || trim($decimalFormatString) === '') {
+            return null;
+        }
+        return MoneyHelper::parse($decimalFormatString, $currency);
+    }
+}
