@@ -47,6 +47,6 @@ if (!function_exists('money_or_null')) {
         if ($decimalFormatString === null || trim($decimalFormatString) === '') {
             return null;
         }
-        return MoneyHelper::parse($decimalFormatString, $currency);
+        return MoneyHelper::parse((string)$decimalFormatString, $currency);
     }
 }
