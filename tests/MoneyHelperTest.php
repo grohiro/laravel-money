@@ -42,7 +42,7 @@ class MoneyHelperTest extends TestCase
         $this->assertEquals($json['amount'], 1050);
         $this->assertEquals($json['decimal'], '1050');
         $this->assertEquals($json['code'], 'JPY');
-        $this->assertEquals($json['text'], '1050JPY');
+        $this->assertEquals($json['text'], '1,050JPY');
         $this->assertEquals($json['subunit'], 0);
     }
 

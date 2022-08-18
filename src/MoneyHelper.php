@@ -37,12 +37,13 @@ class MoneyHelper
         $currencies = new ISOCurrencies();
         $decimal = static::decimal($money);
         $code = $money->getCurrency()->getCode();
+        $subunit = $currencies->subunitFor($money->getCurrency());
         return [
             'amount' => $money->getAmount(),
             'code' => $code,
             'decimal' => $decimal,
-            'subunit' => $currencies->subunitFor($money->getCurrency()),
-            'text' => $decimal.$code,
+            'subunit' => $subunit,
+            'text' => number_format($decimal, $subunit).$code,
         ];
     }
 

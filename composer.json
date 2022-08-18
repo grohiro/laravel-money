@@ -1,6 +1,6 @@
 {
     "name": "grohiro/laravel-money",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "type": "library",
     "license": "MIT",
     "autoload": {
